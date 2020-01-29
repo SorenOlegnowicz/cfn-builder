@@ -16,6 +16,7 @@ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apps
                 "EndpointType" : {{this.EndpointType}},
                 "VpceId" : {{this.VpceId}}
               }
+              {{#unless @last}},{{/unless}}
             {{/each}}
             {{/with}}
           {{/if}}
@@ -53,7 +54,8 @@ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apps
       {{#if this.EmbedHostDomains}}
         "EmbedHostDomains" : [
           {{#each this.EmbedHostDomains}}
-            "{{this}}"{{#unless @last}},{{/unless}}
+            "{{this}}"
+            {{#unless @last}},{{/unless}}
           {{/each}}
         ],
       {{/if}}
@@ -75,7 +77,8 @@ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apps
           "ConnectorType" : {{this.ConnectorType}},
           "Domains" : [
             {{#each this.Domains}}
-              "{{this}}"{{#unless @last}},{{/unless}}
+              "{{this}}"
+              {{#unless @last}},{{/unless}}
             {{/each}}
            ],
           "ResourceIdentifier" : "{{this.ResourceIdentifier}}"
@@ -90,6 +93,7 @@ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apps
             "Action" : "{{this.Action}}",
             "Permission" : "{{this.Permission}}"
           }
+          {{#unless @last}},{{/unless}}
         {{/each}}
       ],
 
